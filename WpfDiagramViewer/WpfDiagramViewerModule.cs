@@ -14,7 +14,7 @@ namespace WpfDiagramViewer
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-
+            containerRegistry.RegisterForNavigation<ViewerMainView>();
         }
     }
 }

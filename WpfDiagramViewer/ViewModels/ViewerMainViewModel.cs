@@ -3,12 +3,11 @@ using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Security.Cryptography.X509Certificates;
 
 namespace WpfDiagramViewer.ViewModels
 {
-    public class ViewAViewModel : BindableBase
+    public class ViewerMainViewModel : BindableBase
     {
         private string _message;
         public string Message
@@ -16,10 +15,9 @@ namespace WpfDiagramViewer.ViewModels
             get { return _message; }
             set { SetProperty(ref _message, value); }
         }
-
-        public ViewAViewModel()
+        public ViewerMainViewModel()
         {
-            Message = "View A from your Prism Module";
+            Message = "Viewer Module.";
         }
     }
 }
