@@ -4,6 +4,7 @@ using System.Windows;
 using Prism.Modularity;
 using WpfDiagramViewer;
 using Prism.Regions;
+using WpfDiagram.Core;
 
 namespace WpfDiagram
 {
@@ -32,7 +33,7 @@ namespace WpfDiagram
             base.OnInitialized();
 
             var regionMan = Container.Resolve<IRegionManager>();
-            regionMan.RegisterViewWithRegion("ContentRegion", typeof(WpfDiagramViewer.Views.ViewerMainView));
+            regionMan.RegisterViewWithRegion(RegionNames.ContentBottomRegion, typeof(WpfDiagramViewer.Views.ViewerMainView));
         }
     }
 }
