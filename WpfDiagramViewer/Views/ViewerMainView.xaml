@@ -8,6 +8,9 @@
              xmlns:prism="http://prismlibrary.com/"             
              prism:ViewModelLocator.AutoWireViewModel="True">
     <Grid>
-        <TextBlock Text="{Binding Message}" />
+        <StackPanel>
+            <TextBlock Text="{Binding Message}" />
+            <Button Content="Access DB Test" Command="{Binding GoSqlCommand}" />
+        </StackPanel>
     </Grid>
 </UserControl>

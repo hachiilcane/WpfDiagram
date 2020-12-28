@@ -6,9 +6,11 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="MaterialDesignThemes.MahApps" Version="0.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.4" />
     <PackageReference Include="Prism.Wpf" Version="7.2.0.1422" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ModelingObject\ModelingObject.csproj" />
     <ProjectReference Include="..\WpfDiagram.Core\WpfDiagram.Core.csproj" />
   </ItemGroup>
 </Project>
