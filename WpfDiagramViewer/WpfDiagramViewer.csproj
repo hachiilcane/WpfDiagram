@@ -12,5 +12,6 @@
   <ItemGroup>
     <ProjectReference Include="..\ModelingObject\ModelingObject.csproj" />
     <ProjectReference Include="..\WpfDiagram.Core\WpfDiagram.Core.csproj" />
+    <ProjectReference Include="..\WpfDiagram.CustomControl\WpfDiagram.CustomControl.csproj" />
   </ItemGroup>
 </Project>

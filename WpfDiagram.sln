@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfDiagramViewer", "WpfDiag
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfDiagram.Core", "WpfDiagram.Core\WpfDiagram.Core.csproj", "{BCC9AD0D-655E-464D-B7C5-DFA24ECAC13A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelingObject", "ModelingObject\ModelingObject.csproj", "{B4137E23-6311-417B-8F6F-79D2D4AAACC1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModelingObject", "ModelingObject\ModelingObject.csproj", "{B4137E23-6311-417B-8F6F-79D2D4AAACC1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfDiagram.CustomControl", "WpfDiagram.CustomControl\WpfDiagram.CustomControl.csproj", "{A7A8DEB7-5205-4D3D-924C-8D99BB3B4A3E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{B4137E23-6311-417B-8F6F-79D2D4AAACC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4137E23-6311-417B-8F6F-79D2D4AAACC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4137E23-6311-417B-8F6F-79D2D4AAACC1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7A8DEB7-5205-4D3D-924C-8D99BB3B4A3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7A8DEB7-5205-4D3D-924C-8D99BB3B4A3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7A8DEB7-5205-4D3D-924C-8D99BB3B4A3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7A8DEB7-5205-4D3D-924C-8D99BB3B4A3E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

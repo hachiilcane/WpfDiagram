@@ -6,11 +6,37 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300"
              xmlns:prism="http://prismlibrary.com/"             
-             prism:ViewModelLocator.AutoWireViewModel="True">
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             xmlns:customControl="clr-namespace:WpfDiagram.CustomControl;assembly=WpfDiagram.CustomControl" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
+    <UserControl.Resources>
+        <SolidColorBrush x:Key="DefaultEquipmentFillBrush" Color="Yellow"/>
+    </UserControl.Resources>
     <Grid>
-        <StackPanel>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0">
+            <customControl:EquipmentIcon Kind="Inlet" Fill="{StaticResource DefaultEquipmentFillBrush}" />
+            <customControl:EquipmentIcon Kind="Outlet" Fill="{StaticResource DefaultEquipmentFillBrush}" />
+            <customControl:EquipmentIcon Kind="Valve" Fill="{StaticResource DefaultEquipmentFillBrush}" />
+            <customControl:EquipmentIcon Kind="Pipe" Fill="{StaticResource DefaultEquipmentFillBrush}" />
             <TextBlock Text="{Binding Message}" />
             <Button Content="Access DB Test" Command="{Binding GoSqlCommand}" />
         </StackPanel>
+        <ListBox Grid.Row="1" ItemsSource="{Binding Equipments}">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel />
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <customControl:EquipmentIcon Kind="{Binding}" Fill="{StaticResource DefaultEquipmentFillBrush}"
+                                                 Width="32" Height="32" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </UserControl>

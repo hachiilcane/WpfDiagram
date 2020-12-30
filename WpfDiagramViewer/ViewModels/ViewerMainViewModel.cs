@@ -6,6 +6,7 @@ using Prism.Mvvm;
 using Prism.Regions;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using WpfDiagram.Core.Mvvm;
@@ -21,12 +22,27 @@ namespace WpfDiagramViewer.ViewModels
             set { SetProperty(ref _message, value); }
         }
 
+        public ObservableCollection<string> Equipments { get; private set; } = new ObservableCollection<string>();
+
         public DelegateCommand GoSqlCommand { get; private set; }
 
         public ViewerMainViewModel(IRegionManager regionManager) : base(regionManager)
         {
             Message = "Viewer Module.";
             GoSqlCommand = new DelegateCommand(DoSqlTest);
+
+            Equipments.Clear();
+
+            List<string> equipments = new List<string>();
+            for (int i = 0; i < 200; i++)
+            {
+                equipments.Add("Inlet");
+                equipments.Add("Outlet");
+                equipments.Add("Valve");
+                equipments.Add("Pipe");
+            }
+
+            Equipments.AddRange(equipments);
         }
 
         private void DoSqlTest()
