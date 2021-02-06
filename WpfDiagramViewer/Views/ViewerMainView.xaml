@@ -7,9 +7,27 @@
              d:DesignHeight="300" d:DesignWidth="300"
              xmlns:prism="http://prismlibrary.com/"             
              prism:ViewModelLocator.AutoWireViewModel="True"
-             xmlns:customControl="clr-namespace:WpfDiagram.CustomControl;assembly=WpfDiagram.CustomControl" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
+             d:DataContext="{d:DesignInstance vm:ViewerMainViewModel}"
+             xmlns:customControl="clr-namespace:WpfDiagram.CustomControl;assembly=WpfDiagram.CustomControl"
+             xmlns:vm="clr-namespace:WpfDiagramViewer.ViewModels"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:wpf="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf">
     <UserControl.Resources>
         <SolidColorBrush x:Key="DefaultEquipmentFillBrush" Color="Yellow"/>
+
+        <DataTemplate DataType="{x:Type vm:InletViewModel}">
+            <customControl:InletControl DataContext="{Binding}" />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:PipeViewModel}">
+            <customControl:PipeControl DataContext="{Binding}" />
+        </DataTemplate>
+        
+        <Style x:Key="ShapesListBoxItemContainerStyle"
+               TargetType="{x:Type ListBoxItem}"
+               BasedOn="{StaticResource {x:Type ListBoxItem}}">
+            <Setter Property="Canvas.Left" Value="{Binding X}" />
+            <Setter Property="Canvas.Top" Value="{Binding Y}" />
+        </Style>
     </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -25,7 +43,7 @@
             <TextBlock Text="{Binding Message}" />
             <Button Content="Access DB Test" Command="{Binding GoSqlCommand}" />
         </StackPanel>
-        <ListBox Grid.Row="1" ItemsSource="{Binding Equipments}">
+        <!--<ListBox Grid.Row="1" ItemsSource="{Binding Equipments}">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel />
@@ -37,6 +55,17 @@
                                                  Width="32" Height="32" />
                 </DataTemplate>
             </ListBox.ItemTemplate>
-        </ListBox>
+        </ListBox>-->
+        <Border Grid.Row="1" BorderBrush="Black" BorderThickness="1">
+            <ListBox x:Name="ShapesListBox"
+                     ItemsSource="{Binding Shapes}"
+                     ItemContainerStyle="{DynamicResource ShapesListBoxItemContainerStyle}">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Canvas/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
+        </Border>
     </Grid>
 </UserControl>

@@ -23,6 +23,7 @@ namespace WpfDiagramViewer.ViewModels
         }
 
         public ObservableCollection<string> Equipments { get; private set; } = new ObservableCollection<string>();
+        public ObservableCollection<ShapeViewModelBase> Shapes { get; private set; } = new ObservableCollection<ShapeViewModelBase>();
 
         public DelegateCommand GoSqlCommand { get; private set; }
 
@@ -43,6 +44,32 @@ namespace WpfDiagramViewer.ViewModels
             }
 
             Equipments.AddRange(equipments);
+
+            List<ShapeViewModelBase> shapes = new List<ShapeViewModelBase>();
+            for (int i = 0; i < 30; i++)
+            {
+                shapes.Add(new InletViewModel()
+                {
+                    X = (i % 8) * 40 + 5,
+                    Y = (int)(i / 8) * 40 + 5,
+                    Width = 64,
+                    Height = 64,
+                    Angle = 0
+                });
+            }
+            for (int i = 0; i < 5; i++)
+            {
+                shapes.Add(new PipeViewModel()
+                {
+                    X = (i % 8) * 40 + 5,
+                    Y = (int)(i / 8) * 40 + 5 +300,
+                    Width = 64,
+                    Height = 64,
+                    Angle = 0
+                });
+            }
+
+            Shapes.AddRange(shapes);
         }
 
         private void DoSqlTest()

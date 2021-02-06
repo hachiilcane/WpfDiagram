@@ -3,7 +3,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:WpfDiagram.CustomControl">
 
-   
     <Style TargetType="{x:Type local:EquipmentIcon}">
         <Setter Property="Height" Value="16" />
         <Setter Property="Width" Value="16" />
@@ -23,6 +22,102 @@
                                       StrokeThickness="1"
                                       Stroke="{TemplateBinding Foreground}"
                                       Fill="{Binding Fill, RelativeSource={RelativeSource TemplatedParent}}" />
+                            </Canvas>
+                        </Viewbox>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type local:InletControl}">
+        <Setter Property="Height" Value="{Binding Height}" />
+        <Setter Property="Width" Value="{Binding Width}" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="IsTabStop" Value="False" />
+        <Setter Property="FlowDirection" Value="LeftToRight" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:InletControl}">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <Viewbox FlowDirection="{TemplateBinding FlowDirection}">
+                            <Canvas Width="24" Height="24">
+                                <Path Stroke="{TemplateBinding Foreground}"
+                                      StrokeThickness="1"
+                                      Fill="Blue">
+                                    <Path.Data>
+                                        <PathGeometry>
+                                            <PathGeometry.Figures>
+                                                <PathFigure StartPoint="12,2">
+                                                    <PathFigure.Segments>
+                                                        <ArcSegment Size="10, 10" RotationAngle="0" IsLargeArc="False" SweepDirection="Counterclockwise" Point="2, 12" />
+                                                        <ArcSegment Size="10, 10" RotationAngle="0" IsLargeArc="False" SweepDirection="Counterclockwise" Point="12, 22" />
+                                                        <ArcSegment Size="10, 10" RotationAngle="0" IsLargeArc="False" SweepDirection="Counterclockwise" Point="22, 12" />
+                                                        <ArcSegment Size="10, 10" RotationAngle="0" IsLargeArc="False" SweepDirection="Counterclockwise" Point="12, 2" />
+                                                    </PathFigure.Segments>
+                                                </PathFigure>
+                                                <PathFigure StartPoint="12,2">
+                                                    <PathFigure.Segments>
+                                                        <LineSegment Point="12,14" />
+                                                    </PathFigure.Segments>
+                                                </PathFigure>
+                                                <PathFigure StartPoint="8,8" IsFilled="False">
+                                                    <PathFigure.Segments>
+                                                        <PolyLineSegment Points="12,14 16,8" />
+                                                    </PathFigure.Segments>
+                                                </PathFigure>
+                                            </PathGeometry.Figures>
+                                        </PathGeometry>
+                                    </Path.Data>
+                                </Path>
+                            </Canvas>
+                        </Viewbox>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type local:PipeControl}">
+        <Setter Property="Height" Value="{Binding Height}" />
+        <Setter Property="Width" Value="{Binding Width}" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="IsTabStop" Value="False" />
+        <Setter Property="FlowDirection" Value="LeftToRight" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:PipeControl}">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <Viewbox FlowDirection="{TemplateBinding FlowDirection}">
+                            <Canvas Width="24" Height="24">
+                                <Path Stroke="{TemplateBinding Foreground}"
+                                      StrokeThickness="1"
+                                      Fill="Blue">
+                                    <Path.Data>
+                                        <PathGeometry>
+                                            <PathGeometry.Figures>
+                                                <PathFigure StartPoint="3,6">
+                                                    <PathFigure.Segments>
+                                                        <LineSegment Point="21,6" />
+                                                        <ArcSegment Size="1, 1" RotationAngle="0" IsLargeArc="False" SweepDirection="Clockwise" Point="22, 7" />
+                                                        <LineSegment Point="22,17" />
+                                                        <ArcSegment Size="1, 1" RotationAngle="0" IsLargeArc="False" SweepDirection="Clockwise" Point="21, 18" />
+                                                        <LineSegment Point="3,18" />
+                                                        <ArcSegment Size="1, 1" RotationAngle="0" IsLargeArc="False" SweepDirection="Clockwise" Point="2, 17" />
+                                                        <LineSegment Point="2,7" />
+                                                        <ArcSegment Size="1, 1" RotationAngle="0" IsLargeArc="False" SweepDirection="Clockwise" Point="3, 6" />
+                                                    </PathFigure.Segments>
+                                                </PathFigure>
+                                            </PathGeometry.Figures>
+                                        </PathGeometry>
+                                    </Path.Data>
+                                </Path>
                             </Canvas>
                         </Viewbox>
                     </Border>
